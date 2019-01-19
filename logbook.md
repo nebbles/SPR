@@ -12,10 +12,10 @@
 
 - Finalised usage of reverse tunnel to remotely access web interface of Prusa octoprint. This is written in the form of a bash script that will be stored in the `misc/` directory. Script is called `serve-web`. See file for more information.
 - Investigating some additional useful plugins for octoprint that may help with printer management:
-    [ ] [Octoprint Anywhere](https://plugins.octoprint.org/plugins/anywhere/)
-    [ ] [Exclude Region](https://plugins.octoprint.org/plugins/excluderegion/)
+    - [ ] [Octoprint Anywhere](https://plugins.octoprint.org/plugins/anywhere/)
+    - [ ] [Exclude Region](https://plugins.octoprint.org/plugins/excluderegion/)
 
-## [18 January 2019](#overview)
+## [18 January 2019 ↑](#overview)
 
 - Started manufacturing a new camera mount that will be fixed relative to z axis of hotend.
 - Further research on reverse tunnelling to assist with remote monitoring.
