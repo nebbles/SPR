@@ -2,18 +2,17 @@
 
 ## Overview
 
-1. [02 Nov](#2-November-2018)
-2. [16 Nov](#16-November-2018)
-3. [23 Nov](#23-November-2018)
-4. [30 Nov](#30-November-2018)
-5. [17-19 Jan](#19-January-2019)
+1. [02 Nov](#2-November-2018-↑)
+2. [16 Nov](#16-November-2018-↑)
+3. [23 Nov](#23-November-2018-↑)
+4. [30 Nov](#30-November-2018-↑)
+5. [17-18 Jan](#18-January-2019-↑)
+5. [19 Jan](#19-January-2019-↑)
 
 ## [19 January 2019 ↑](#overview)
 
 - Finalised usage of reverse tunnel to remotely access web interface of Prusa octoprint. This is written in the form of a bash script that will be stored in the `misc/` directory. Script is called `serve-web`. See file for more information.
 - Made a new cronjob that would start up the reverse tunnel correctly after a Pi reboot: `@reboot /home/pi/bin/serve-web > /home/logs/serve-web.log 2>&1`
-- Plan to use [SSH keys](https://askubuntu.com/questions/46930/how-can-i-set-up-password-less-ssh-login) for passwordless login on SSH.
-- Prepared for new script that will serve SSH tunnel for remote administration. This will forward port 22 instead of the web port (80) as before.
 - Investigating some additional useful plugins for octoprint that may help with printer management (marks signify package was used):
     - [ ] [Octoprint Anywhere](https://plugins.octoprint.org/plugins/anywhere/)
     - [ ] [Exclude Region](https://plugins.octoprint.org/plugins/excluderegion/)
@@ -36,6 +35,33 @@
     - [x] [Themeify](https://plugins.octoprint.org/plugins/themeify/)
     - [ ] [Tab Order](https://plugins.octoprint.org/plugins/taborder/)
     - [ ] [Printer Statistics](https://plugins.octoprint.org/plugins/stats/)
+
+- Created an SSH config (`nano ~/.ssh/config`) to use an SSH jump to reach the Pi behind Imperial firewall:
+
+    ```
+    Host spr-prusa
+            Hostname spr-prusa
+            User pi
+            ProxyJump serveo.net
+
+    # Equivalent to: ssh -J serveo.net pi@spr-prusa
+    ```
+
+    This was done whilst the serveo reverse tunnel was already temporarily established on the Pi side. At this point I had not developed a script to run it automatically: `ssh -R spr-prusa:22:localhost:22 serveo.net`
+
+- Plan to use [SSH keys](https://askubuntu.com/questions/46930/how-can-i-set-up-password-less-ssh-login) for passwordless login on SSH. Followed the following steps:
+
+    ```
+    $ ssh-keygen
+
+    ... key is created ...
+
+    $ ssh-copy-id spr-prusa
+    ```
+
+    Note that the `-i` flag should be used to specify which identy you want to be copied to the remote host.
+
+- With automatic log-in and a short ssh command set up using a config file to access the Pi remotely, the final step was just to ensure that the SSH reverse tunnel set up previously stays alive. For this a script was set up similar to before and is named `serve-ssh` which can be found in the `misc/` directory. This new script will handle the tunnel responsible for administrative access through port 22 rather than web traffic aimed for port 80 to reach the Octoprint dashboard.
 
 ## [18 January 2019 ↑](#overview)
 
