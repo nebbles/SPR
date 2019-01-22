@@ -9,34 +9,43 @@
 5. [17-18 Jan](#18-January-2019-↑)
 5. [19 Jan](#19-January-2019-↑)
 
+## [22 January 2019 ↑](#overview)
+
+- Continued with (software) preparation for new camera mount.
+
+## [21 January 2019 ↑](#overview)
+
+- Installed new Raspberry Pi casing which is mounted to the frame of the Prusa.
+- Connected camera with new 2m cable. Used original position of bottom left corner for the time being.
+
 ## [19 January 2019 ↑](#overview)
 
 - Finalised usage of reverse tunnel to remotely access web interface of Prusa octoprint. This is written in the form of a bash script that will be stored in the `misc/` directory. Script is called `serve-web`. See file for more information.
 - Made a new cronjob that would start up the reverse tunnel correctly after a Pi reboot: `@reboot /home/pi/bin/serve-web > /home/logs/serve-web.log 2>&1`
 - Investigating some additional useful plugins for octoprint that may help with printer management (marks signify package was used):
     - [ ] [Octoprint Anywhere](https://plugins.octoprint.org/plugins/anywhere/)
-    - [ ] [Exclude Region](https://plugins.octoprint.org/plugins/excluderegion/)
-    - [ ] [Detailed Progress](https://plugins.octoprint.org/plugins/detailedprogress/)
-    - [ ] [Print History](https://plugins.octoprint.org/plugins/printhistory/)
-    - [ ] [Print Time Genius](https://plugins.octoprint.org/plugins/PrintTimeGenius/)
-    - [ ] [Octolapse](https://plugins.octoprint.org/plugins/octolapse/)
-    - [ ] [File Manager](https://plugins.octoprint.org/plugins/filemanager/)
+    - [x] [Exclude Region](https://plugins.octoprint.org/plugins/excluderegion/)
+    - [x] [Detailed Progress](https://plugins.octoprint.org/plugins/detailedprogress/)
+    - [x] [Print History](https://plugins.octoprint.org/plugins/printhistory/)
+    - [x] [Print Time Genius](https://plugins.octoprint.org/plugins/PrintTimeGenius/)
+    - [x] [Octolapse](https://plugins.octoprint.org/plugins/octolapse/)
+    - [x] [File Manager](https://plugins.octoprint.org/plugins/filemanager/)
     - [ ] [Multiple Upload](https://plugins.octoprint.org/plugins/MultipleUpload/)
     - [ ] [STL Viewer](https://plugins.octoprint.org/plugins/stlviewer/)
     - [ ] [Cancel Object](https://plugins.octoprint.org/plugins/cancelobject/)
-    - [ ] [Extra Distance](https://plugins.octoprint.org/plugins/extradistance/)
+    - [x] [Extra Distance](https://plugins.octoprint.org/plugins/extradistance/)
     - [ ] [Fan Speed Control](https://plugins.octoprint.org/plugins/fanslider/)
     - [ ] [Floating Nav Bar](https://plugins.octoprint.org/plugins/floatingnavbar/)
     - [ ] [Gcode Editor](https://plugins.octoprint.org/plugins/GcodeEditor/)
-    - [ ] [Simple Emergency Stop](https://plugins.octoprint.org/plugins/simpleemergencystop/)
+    - [x] [Simple Emergency Stop](https://plugins.octoprint.org/plugins/simpleemergencystop/)
     - [ ] [Better Heater Timeout](https://plugins.octoprint.org/plugins/BetterHeaterTimeout/)
-    - [ ] [Nav Bar Temp](https://plugins.octoprint.org/plugins/navbartemp/)
+    - [x] [Nav Bar Temp](https://plugins.octoprint.org/plugins/navbartemp/)
     - [ ] [Enclosure](https://plugins.octoprint.org/plugins/enclosure/)
     - [x] [Themeify](https://plugins.octoprint.org/plugins/themeify/)
     - [ ] [Tab Order](https://plugins.octoprint.org/plugins/taborder/)
-    - [ ] [Printer Statistics](https://plugins.octoprint.org/plugins/stats/)
+    - [x] [Printer Statistics](https://plugins.octoprint.org/plugins/stats/)
 
-- Created an SSH config (`nano ~/.ssh/config`) to use an SSH jump to reach the Pi behind Imperial firewall:
+- [Created](https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/) an SSH config (`nano ~/.ssh/config`) to use an [SSH jump](https://wiki.gentoo.org/wiki/SSH_jump_host) to reach the Pi behind Imperial firewall:
 
     ```
     Host spr-prusa
