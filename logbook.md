@@ -7,7 +7,14 @@
 3. [23 Nov](#23-November-2018-↑)
 4. [30 Nov](#30-November-2018-↑)
 5. [17-18 Jan](#18-January-2019-↑)
-5. [19 Jan](#19-January-2019-↑)
+6. [19 Jan](#19-January-2019-↑)
+7. [21-24 Jan](#24-January-2019-↑)
+
+## [24 January 2019 ↑](#overview)
+
+- Trialled alternative materials on Prusa printer to see success rate. Proved to find any new material difficualt, even PLA/PHA variant.
+- Continued to build new camera mount parts for better image stacks.
+- Investigated aluminium profiles for easy build enclosure [on Amazon](https://www.amazon.co.uk/slp/aluminium-profile/ve7pozj29pbn5kk)
 
 ## [22 January 2019 ↑](#overview)
 
