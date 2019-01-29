@@ -10,6 +10,19 @@
 6. [19 Jan](#19-January-2019-↑)
 7. [21-24 Jan](#24-January-2019-↑)
 
+## [29 January 2019 ↑](#overview)
+
+- Completed timelapse showed camera orientation was incorrect, lighting was fairly consistent but not ideal for analysis and camera quality was very poor.
+- Camera arm bolt broke so new prints need to be started for that.
+- Further improvements to camera snapshots needed from configuration. Working on this.
+
+## [27 January 2019 ↑](#overview)
+
+- More bed corrections to Wanhao printer to get reliable print.
+- Adjustments to slicer configuration to Prusa to avoid failed prints.
+- Continued manufacture of new camera mount arm and assembly.
+- Started first timelapse with camera on new arm.
+
 ## [24 January 2019 ↑](#overview)
 
 - Trialled alternative materials on Prusa printer to see success rate. Proved to find any new material difficualt, even PLA/PHA variant.
