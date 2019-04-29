@@ -3,12 +3,119 @@
 ## Overview
 
 1. [02 Nov](#2-November-2018-↑)
-2. [16 Nov](#16-November-2018-↑)
-3. [23 Nov](#23-November-2018-↑)
-4. [30 Nov](#30-November-2018-↑)
-5. [17-18 Jan](#18-January-2019-↑)
-6. [19 Jan](#19-January-2019-↑)
-7. [21-24 Jan](#24-January-2019-↑)
+1. [16 Nov](#16-November-2018-↑)
+1. [23 Nov](#23-November-2018-↑)
+1. [30 Nov](#30-November-2018-↑)
+1. [17-18 Jan](#18-January-2019-↑)
+1. [19 Jan](#19-January-2019-↑)
+1. [21-24 Jan](#24-January-2019-↑)
+1. [27-29 Jan](#29-January-2019-↑)
+1. [31 Jan](#31-January-2019-↑)
+1. [1 Feb](#1-February-2019-↑)
+1. [Fri 26 Apr](#26-April-2019-↑)
+1. [Mon 29 Apr](#29-April-2019-↑)
+
+## [29 April 2019 ↑](#overview)
+
+Began with calibrating carefully by hand the keypoints on the bed in the first frame. This would ensure the perspective correction could be as accurate as possible. Next, processed the full image stack, adjusting warp perspective of every image.
+
+Physical measurements were taken from the machine through gcode experimentation. The following block of code was iterated until it correctly traced the centre blocks of the Prusa bed (X100 Y55 to X150 Y155). It shows that the bed markers are not perfectly aligned to the control system.
+
+> M83              ; sets extrusion measurements to relative  
+> G1 X99 Y55       ; bottom left corner  
+> G1 X149 Y55 E10  ; bottom right corner  
+> G1 X149 Y155 E10 ; top right corner  
+> G1 X99 Y155 E10  ; top left corner  
+> G1 X99 Y55 E10   ; bottom left corner  
+> G1 X5 Y5         ; move near home  
+
+Even with the iteration of the above code, the resulting extrusion was a slight underestimation on the X axis, and marginally too high on the Y axis. Ideal correction would be around probably be within 0.3 millimetres, and so for the sake of this early calibration this isn't necessary.
+
+The bed markers on the prusa are set in 50 mm intervals in both X and Y axis.
+
+The gcode file reports the z-layer in a slightly more convulted way than anticipated. Rather than having the absolute layer number, the z-height is reported, e.g. 
+
+> ;AFTER_LAYER_CHANGE  
+> ;1.4  
+
+In order to split the file into its relevant sections, the z-height must be converted into z-layer. The difference in height between layers is 0.15 mm and the first layer (layer 1; zero is empty) is at 0.2 according to the test file.
+
+Additionally, there is multiple perimeter sets found for each layer. Fortunately they can be split apart, but cannot be identified. So began work on a custom gcode parser to detect and extract the different perimeters. These are then stored as follows:
+
+    → array of layers  
+      ↳ array of perimeters  
+        ↳ array of XY coordinates in the perimeter  
+          ↳ dictionary of 'x' and 'y' coordinate respectively  
+
+So, layer 110 for example was processed to this:
+
+> [{'X': '134.775', 'Y': '95.225'},  
+>  {'X': '134.775', 'Y': '114.775'},  
+>  {'X': '115.225', 'Y': '114.775'},  
+>  {'X': '115.225', 'Y': '95.225'},  
+>  {'X': '134.715', 'Y': '95.225'}]  
+> [{'X': '115.643', 'Y': '95.643'},  
+>  {'X': '134.357', 'Y': '95.643'},  
+>  {'X': '134.357', 'Y': '114.357'},  
+>  {'X': '115.643', 'Y': '114.357'},  
+>  {'X': '115.643', 'Y': '95.703'}]  
+
+The next stage will be to draw these perimeters, each with a different colour, over the warped images saved from earlier work. Hopefully this will help to identify which perimeter is the external one (inside-out extrusion or outside-in extrusion).
+
+## [26 April 2019 ↑](#overview)
+
+I will now aim to keep this log with more ongoing details, rather than summarising key areas completed.
+
+Previously planned milestones set as follows:
+
+1. Perspective correction
+2. Unit alignment
+3. Gcode overlays on imaging for confirmation
+4. Edge detection on the bed (for automatic unit alignment)
+5. Top layer extraction from image
+6. Error analysis (identification, categorisation, severity)
+7. Detailed logging
+8. Integration with octoprint
+
+This however has been superceded. Instead, in the immediate future, offline analytical work of various imaging techniques will be prioritised. Below are extract from alternative notes.
+
+    (1) See if the previous image is similar for the top layer area. This may work
+    as this should actually be the part of the image that has changed the least.
+
+    (2) Extract gcode of the outer loop of the top layer that has just printed.
+    Using thresholding, look for filament colouring inside vs outside of this outer
+    extrusion region.
+
+    (3) Line/pattern matching between filament pattern of top layer and gcode (exact 
+    methodology to be determined still).
+
+    (4) Using decision tree type elimination to determine type of error based on 
+    the image analysis technique.
+
+    There should also be a noticeable error change over multiple frames that could 
+    be thresholded, which would allow for a gradual deterioration of print quality.
+
+    (5) Shape analysis of gcode and warped imaging.
+
+    (6) Further analysis into first-layer print warping could be analysed using 
+    the image correction technique used to adjust persepctive (as it doesn't keep 
+    an expected profile).
+
+Developments and commentary will be post here.
+
+## [1 February 2019 ↑](#overview)
+
+- Modified the camera mounting arm to a higher position. 
+- Altered the position for taking layer snapshots so that camera position is square with bed.
+- Began collection of first image stack for anlysis purposes.
+
+## [31 January 2019 ↑](#overview)
+
+- Need more links to the articulated arm camera mount. Began print for some extra links.
+- Identified settings preset for `mjpg-streamer` for Raspberry Pi. Configuration is set in `/boot/octopi.txt`. Available presets are [here](https://discourse.octoprint.org/t/available-mjpg-streamer-configuration-options/1106). Began by adjusting resolution up to 720p.
+- Camera still had protective film over lens. This was dramatically reducing light capture and reducing image quality and focus.
+- Lens needed to be manually focused on the Camera Module V2. To do this, the lens was rotate counterclockwise (using tweesers). This meant that closer object moved into focus, which was desired for a relatively close print image.
+- Today was a good day for camera quality.
 
 ## [29 January 2019 ↑](#overview)
 
