@@ -21,7 +21,60 @@
 
 ## [1 May 2019 ↑](#overview)
 
+Further analysis of the extracted gcode perimeters shows that the last 10 layers or so have 4 perimeters instead of two (layer 121 to final layer, 133). This is due to the recess in the centre of the top face for the letter 'Z'. Layer 130 was selected for perimeter analysis.
 
+<p align="center"><img width="100%" src="logbook-images/20190501001.png" alt="image"></p>
+<p align="center"><sup><i>Layer 130, perspective corrected with perimeters gcode overlayed in two colours (with extrusion plane in green)</sup></i></p>
+
+It should be noted that the order extrusion for the above perimeters is
+
+1. Black
+1. Blue
+1. Magenta
+1. Red
+
+It shows that the extruder continues with the rule inside-out. Starting with inner perimeters, and always working 'outwards' to the external wall. Based on this, future experimentation with this image stack can assume the outermost perimeter is always the last extruded. This can be used for the imaging algorithms.
+
+Using image subtraction got nowhere. Took layer image and subtracted the previous layer image. As can be seen below, not only are individual image diffs unuseable, but they do not remain consistent throughout the image stack.
+
+<p align="center">
+<img width="30%" src="logbook-images/20190501002.png" alt="image">
+<img width="30%" src="logbook-images/20190501003.png" alt="image">
+<img width="30%" src="logbook-images/20190501004.png" alt="image">
+</p>
+<p align="center"><sup><i>Layer 20-19, 30-29, and 60-59</sup></i></p>
+
+Based on a previous project, I may trial using `findContours` from CV, and additionally `approxPolyDP` which can take detected contours and approximate a polygon to fit. This could potentially be compared with the gcode perimeter polygon. Using [this OpenCV tutorial group](https://docs.opencv.org/3.1.0/d3/d05/tutorial_py_table_of_contents_contours.html) which has 'Contour Features'.
+
+To improve accuracy of the find contours function, either threshold or canny edge detection should be applied to the image beforehand. Thresholding is performed ideally on a greyscale image. Thresholding was trialled first using the line
+
+>     ret, thresh = cv2.threshold(imgray, 150, 255, 0)
+
+Note that the `150` value is the threshold value (where `255` is the maximum binary value). By increasing the threshold value, only the brighter parts of the image passes the cutoff.
+
+The drawbacks to this method is that is only looks at brightness of the pixels, which is not a key differentiator for identifiying the top layer of the print. In addition, colour and shade needs to be taken into account.
+
+At a value of 130, the result of the threshold approach can be seen below.
+
+<p align="center">
+<img width="45%" src="logbook-images/20190501005.png" alt="image">
+<img width="45%" src="logbook-images/20190501006.png" alt="image">
+</p>
+<p align="center"><sup><i>B/W Thresholded image (left) and image with found contours (right)</sup></i></p>
+
+After trialling the canny edge detection, it seems the algorithm is far better suited to detecting the edge between shades of the same colour, such as faces of the printed part. To start, the results of just the canny edge detection applied to the full colour (warped) image was tested. The results can be seen below. Using variable sliders, the image shows the smallest range available before degradation of the bottom edge of the top face. This is the hardest edge to detect due to the very little relative change in pixel colour.
+
+<p align="center">
+<img width="100%" src="logbook-images/20190501007.png" alt="image">
+</p>
+<p align="center"><sup><i>Layer 100, passed through canny edge detection with custom min/max values (see bottom of image)</sup></i></p>
+
+The process chains being trialled are,
+
+    Greyscale conversion → thresholded image → find contours (→ polygon approximation)  
+    Canny edge detection → find contours (→ polygon approximation)  
+
+Further investigation into canny edge detection is needed to see if this could be reliable in more varied lighting conditions.
 
 ## [30 April 2019 ↑](#overview)
 
