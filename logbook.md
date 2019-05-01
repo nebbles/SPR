@@ -15,6 +15,19 @@
 1. [Fri 26 Apr](#26-April-2019-↑)
 1. [Mon 29 Apr](#29-April-2019-↑)
 
+## [30 April 2019 ↑](#overview)
+
+Spent most of the morning working on the gcode parser fixing various bugs until it was reliable. For some reason there are 133 (valid) recordings of a layer change. These mark the beginning of each layer and even the first layer of filament laid is considered a layer change beforehand. Therefore the gcode seem to have 133 extruded layers of filament, however the image stack collected by the Octopi recording seems to have images of only the first 132 layers (with a blank one beforehand; 133 total). This leads me to believe a final image is not taken by the timelapse software. This is not a major issue, as this is the last layer of the print and is negligble in utility to this project.
+
+Next, moved onto coordinte system transforms. The coordinates extracted from the gcode perimeter data, need to be converted in `u, v` coordinates according to the warped image. For this, the manually verified anchor points were used to provide linked references between each coordinate system. Beyond that, I've had to wrestle with the strange requirements of the OpenCV functions wrt the structure of the data in numpy arrays.
+
+Main issue with the `perspectiveTransform()` [function](https://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html#void%20perspectiveTransform(InputArray%20src,%20OutputArray%20dst,%20InputArray%20m)) was solved with [this SO post](https://stackoverflow.com/questions/45817325/opencv-python-cv2-perspectivetransform) and as such the np array was reshaped with the help of [this SO post](https://stackoverflow.com/questions/49788723/whats-the-mean-of-reshape-1-1-2) and [example 1 from here](https://www.programcreek.com/python/example/89377/cv2.perspectiveTransform).
+
+Eventually got that working, despite CV fighting back. Result showed that for layer 100 of the print, where there are two perimeters extruded, the second perimeter was the outer one. This indicates that the layer prints perimeters inside-out. This needs to be verified with a layer that contains more than the standard two outer perimeters. See image below.
+
+<p align="center"><img width="100%" src="logbook/20190430001.png" alt="image"></p>
+<p align="center"><sup><i>Layer 100, perspective corrected with perimeters gcode overlayed in two colours (with extrusion plane in green)</sup></i></p>
+
 ## [29 April 2019 ↑](#overview)
 
 Began with calibrating carefully by hand the keypoints on the bed in the first frame. This would ensure the perspective correction could be as accurate as possible. Next, processed the full image stack, adjusting warp perspective of every image.
