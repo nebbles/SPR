@@ -267,7 +267,7 @@ Successfully managed to warp perspective based on key anchor points marked onto 
 
 ## [11 January 2019 ↑](#overview)
 
-<p align="center"><img width="100%" src="logbook-images/20190111001.png" alt="image"></p>
+<p align="center"><img width="60%" src="logbook-images/20190111001.png" alt="image"></p>
 <p align="center"><sup><i>Discussion notes from meeting with Tutor (C. Myant), Associate Tutor (P. Cheung), and Industrial Advisor (R. Deaves)</sup></i></p>
 
 ## [30 November 2018 ↑](#overview)
