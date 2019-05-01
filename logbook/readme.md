@@ -6,14 +6,22 @@
 1. [16 Nov](#16-November-2018-↑)
 1. [23 Nov](#23-November-2018-↑)
 1. [30 Nov](#30-November-2018-↑)
+1. [11 Jan](#11-January-2019-↑)
 1. [17-18 Jan](#18-January-2019-↑)
 1. [19 Jan](#19-January-2019-↑)
 1. [21-24 Jan](#24-January-2019-↑)
 1. [27-29 Jan](#29-January-2019-↑)
 1. [31 Jan](#31-January-2019-↑)
 1. [1 Feb](#1-February-2019-↑)
+1. [20 Feb](#20-February-2019-↑)
 1. [Fri 26 Apr](#26-April-2019-↑)
 1. [Mon 29 Apr](#29-April-2019-↑)
+1. [Tue 30 Apr](#30-April-2019-↑)
+1. [Wed 1 May](#1-May-2019-↑)
+
+## [1 May 2019 ↑](#overview)
+
+
 
 ## [30 April 2019 ↑](#overview)
 
@@ -25,12 +33,15 @@ Main issue with the `perspectiveTransform()` [function](https://docs.opencv.org/
 
 Eventually got that working, despite CV fighting back. Result showed that for layer 100 of the print, where there are two perimeters extruded, the second perimeter was the outer one. This indicates that the layer prints perimeters inside-out. This needs to be verified with a layer that contains more than the standard two outer perimeters. See image below.
 
-<p align="center"><img width="100%" src="logbook/20190430001.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190430001.png" alt="image"></p>
 <p align="center"><sup><i>Layer 100, perspective corrected with perimeters gcode overlayed in two colours (with extrusion plane in green)</sup></i></p>
 
 ## [29 April 2019 ↑](#overview)
 
 Began with calibrating carefully by hand the keypoints on the bed in the first frame. This would ensure the perspective correction could be as accurate as possible. Next, processed the full image stack, adjusting warp perspective of every image.
+
+<p align="center"><img width="50%" src="logbook-images/20190429001.png" alt="image"></p>
+<p align="center"><sup><i>Layer 100, perspective corrected with perimeters gcode overlayed in two colours (with extrusion plane in green)</sup></i></p>
 
 Physical measurements were taken from the machine through gcode experimentation. The following block of code was iterated until it correctly traced the centre blocks of the Prusa bed (X100 Y55 to X150 Y155). It shows that the bed markers are not perfectly aligned to the control system.
 
@@ -115,6 +126,33 @@ This however has been superceded. Instead, in the immediate future, offline anal
     an expected profile).
 
 Developments and commentary will be post here.
+
+## [20 February 2019 ↑](#overview)
+
+Successfully managed to warp perspective based on key anchor points marked onto the bed of the Prusa. These are dimensioned and therefore can be related to gcode coordinates at a later date. Images below show success of warping image with the active extrusion plane overlayd (in green).
+
+<p align="center">
+    <img width="45%" src="logbook-images/20190220001.jpg" alt="image">
+    <img width="45%" src="logbook-images/20190220002.jpg" alt="image">
+</p>
+<p align="center"><sup><i>Layer 0 (empty layer) with calibration square overlayed. Pre and post perspective warp.</sup></i></p>
+
+<p align="center">
+    <img width="45%" src="logbook-images/20190220003.jpg" alt="image">
+    <img width="45%" src="logbook-images/20190220004.jpg" alt="image">
+</p>
+<p align="center"><sup><i>Layer 1 with extrusion plane overlayed. Pre and post perspective warp.</sup></i></p>
+
+<p align="center">
+    <img width="45%" src="logbook-images/20190220005.jpg" alt="image">
+    <img width="45%" src="logbook-images/20190220006.jpg" alt="image">
+</p>
+<p align="center"><sup><i>Mid-print layer with extrusion plane overlayed. Pre and post perspective warp.</sup></i></p>
+
+<p align="center">
+    <img width="60%" src="logbook-images/20190220007.png" alt="image">
+</p>
+<p align="center"><sup><i>Planning on MVP and target features</sup></i></p>
 
 ## [1 February 2019 ↑](#overview)
 
@@ -226,6 +264,11 @@ Developments and commentary will be post here.
 - Wanhao printer set up an calibrated (no accompanying Pi yet). Some test prints run on it.
 - The intial aim is to have Octoprint set up for both printers and taking time lapse photos. The quality and control of these images from the octoprint interface has to be established. This may mean that more granualr control is needed through an alternative, or custom, plugin to the octoprint platform.
 - Initial research conducted into how to use reverse tunnelling to bypass Imperial firewalls and remotely monitor the printers.
+
+## [11 January 2019 ↑](#overview)
+
+<p align="center"><img width="100%" src="logbook-images/20190111001.png" alt="image"></p>
+<p align="center"><sup><i>Discussion notes from meeting with Tutor (C. Myant), Associate Tutor (P. Cheung), and Industrial Advisor (R. Deaves)</sup></i></p>
 
 ## [30 November 2018 ↑](#overview)
 
