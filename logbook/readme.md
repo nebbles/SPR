@@ -2,22 +2,44 @@
 
 ## Overview
 
-1. [02 Nov](#2-November-2018-↑)
-1. [16 Nov](#16-November-2018-↑)
-1. [23 Nov](#23-November-2018-↑)
-1. [30 Nov](#30-November-2018-↑)
-1. [11 Jan](#11-January-2019-↑)
-1. [17-18 Jan](#18-January-2019-↑)
-1. [19 Jan](#19-January-2019-↑)
-1. [21-24 Jan](#24-January-2019-↑)
-1. [27-29 Jan](#29-January-2019-↑)
-1. [31 Jan](#31-January-2019-↑)
-1. [1 Feb](#1-February-2019-↑)
-1. [20 Feb](#20-February-2019-↑)
-1. [Fri 26 Apr](#26-April-2019-↑)
-1. [Mon 29 Apr](#29-April-2019-↑)
-1. [Tue 30 Apr](#30-April-2019-↑)
-1. [Wed 1 May](#1-May-2019-↑)
+1. [02 Nov](#2-November-2018-)
+1. [16 Nov](#16-November-2018-)
+1. [23 Nov](#23-November-2018-)
+1. [30 Nov](#30-November-2018-)
+1. [11 Jan](#11-January-2019-)
+1. [17-18 Jan](#18-January-2019-)
+1. [19 Jan](#19-January-2019-)
+1. [21-24 Jan](#24-January-2019-)
+1. [27-29 Jan](#29-January-2019-)
+1. [31 Jan](#31-January-2019-)
+1. [1 Feb](#1-February-2019-)
+1. [20 Feb](#20-February-2019-)
+1. [Fri 26 Apr](#26-April-2019-)
+1. [Mon 29 Apr](#29-April-2019-)
+1. [Tue 30 Apr](#30-April-2019-)
+1. [Wed 1 May](#1-May-2019-)
+1. [Thur 2 May](#2-May-2019-)
+
+## [2 May 2019 ↑](#overview)
+
+Based on informal discussions at the close of play yesterday, I'll trial another approach today that involves masking the image into two areas, (1) within the outer perimeter, and (2) outside the outer perimeter. The average RGB value will be taken for each of these areas and then plotted against layer to see if there are any large changes over time.
+
+When looking into the possible methodology for averaging regions of the image, I also discovered the difference between *average* vs *dominant* colour in a region ([see this SO post](https://stackoverflow.com/questions/43111029/how-to-find-the-average-colour-of-an-image-in-python-with-opencv)). The effectiveness of each will be a key step into determining whether colour is a suitable feature in detecting errors.
+
+Masking with the extracted gcode perimeter proved successful.
+
+<p align="center"><img width="100%" src="logbook-images/20190502001.png" alt="image"></p>
+<p align="center"><sup><i>Layer 100, masked by outer perimiter (from gcode)</sup></i></p>
+
+In follow-up to previous work on image differencing, it seems mathematical subtraction `imgDiff = imgA - imgB` was the wrong approach and instead replaced by `imgDiff = cv2.subtract(imgA, imgB)` worked much better. See below. Also did a sanity check between two very different layers, 100 and 20, which gave expected results.
+
+<p align="center">
+<img width="45%" src="logbook-images/20190502002.png" alt="image">
+<img width="45%" src="logbook-images/20190502003.png" alt="image">
+<img width="45%" src="logbook-images/20190502004.png" alt="image">
+</p>
+<p align="center"><sup><i>Layer 20-19 using cv2.subtract() (left), histogram adjusted manually to highlight image data (centre), sanity check of image diff between layer 100 and layer 20 (right)</sup></i></p>
+
 
 ## [1 May 2019 ↑](#overview)
 
@@ -107,6 +129,9 @@ Physical measurements were taken from the machine through gcode experimentation.
 > G1 X5 Y5         ; move near home  
 
 Even with the iteration of the above code, the resulting extrusion was a slight underestimation on the X axis, and marginally too high on the Y axis. Ideal correction would be around probably be within 0.3 millimetres, and so for the sake of this early calibration this isn't necessary.
+
+<p align="center"><img width="60%" src="logbook-images/20190429002.jpg" alt="image"></p>
+<p align="center"><sup><i>Custom calibration gcode to check alignment of Prusa bed markings</sup></i></p>
 
 The bed markers on the prusa are set in 50 mm intervals in both X and Y axis.
 
