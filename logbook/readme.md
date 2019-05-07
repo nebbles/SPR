@@ -19,6 +19,23 @@
 1. [Tue 30 Apr](#30-April-2019-)
 1. [Wed 1 May](#1-May-2019-)
 1. [Thur 2 May](#2-May-2019-)
+1. [Fri 3 May](#3-May-2019-)
+
+## [3 May 2019 ↑](#overview)
+
+Tracking the average RGB values of different regions yields some interesting results. The numbers for the 'outer' region (outside the gcode perimeter) are very stable. That will probably be due to the constant black corners in the warped image that do not change, therefore always acting as a dampener to the pixel average.
+
+<p align="center"><img width="100%" src="logbook-images/20190503001.png" alt="image"></p>
+<p align="center"><sup><i>Average RGB values of inside / outside perimeter region of image</sup></i></p>
+
+Note that the abnormal dip for the 38th layer is due to a shadow in the photo causing the entire image to be darker than the rest of the stack. This immediately indicates obvious drawbacks for this method and the need to have a consistent and controlled lighting environment for the print bed.
+
+I will probably have to mask out the very outer regions, probably about the same size as the green box (although not the exact same location) to take more accurate/sensitive readings for the ‘outer’ region of the image.
+
+<p align="center"><img width="50%" src="logbook-images/20190220006.jpg" alt="image"></p>
+<p align="center"><sup><i>(Ref work from 20th Feb)</sup></i></p>
+
+In order to improve the outer mask however, I am currently limited to the top layer plane, as the transform matrix does not account for the bed shifting due to change in z height.
 
 ## [2 May 2019 ↑](#overview)
 
