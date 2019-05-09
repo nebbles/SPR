@@ -20,6 +20,38 @@
 1. [Wed 1 May](#1-May-2019-)
 1. [Thur 2 May](#2-May-2019-)
 1. [Fri 3 May](#3-May-2019-)
+1. [Thur 9 May](#9-May-2019-)
+
+## [9 May 2019 ↑](#overview)
+
+For visual analysis, I reformatted the plot to see how the values change in regards to their total available spectrum (0-255). It becomes clear that the change in the outer range is really very marginal with respect to the full range, however this will need to be verified against an image stack of a 'failed' print.
+
+<p align="center"><img width="100%" src="logbook-images/20190509001.png" alt="image"></p>
+<p align="center"><sup><i>Average RGB values of inside/outside perimeter region of image (reformatted)</sup></i></p>
+
+In order to create an improved outer analysis region there are a number of options identified:
+
+<p align="center"><img width="50%" src="logbook-images/20190509002.jpg" alt="image"></p>
+<p align="center"><sup><i>Identified areas potentially to derive an outer analysis region</sup></i></p>
+
+1. **Auto-detect bed again from markings** - not ideal due to the highly varying nature of marking visibility between different prints. It must be assumed that most of the bed could become hidden once layers start printing.
+1. **Use top layer plane** - since this was already computed to calibrate the top layer gcode position. However this uses a fixed and relatively small area on the bed to calibrate, and will likely not fit enough of the printed part inside (e.g. for a larger part).
+1. **Bed edge** 
+    
+    1. **Automatic detection** - This could help to eliminate some of the excess noise around the bed in the image however is prone to earlier issues of the bed being hidden and therefore hard to detect. 
+    1. **Predetermined fixed region** - A stronger option but then is less robust to real-world camera positioning.
+
+1. **Offset Gcode perimeter** - Potentially a useful region, as this can be compounded with knowledge about how the area of the outer perimeter changes over time.
+
+This means that top face area needs to be computed for each frame. This can indicate what to expect in the surrounding pixels, such as if the area is shrinking (e.g. cone) then there will be a slower rate of increase in orange pixels in the immediate region around the top layer.
+
+    Was recently asked why the camera might not be positioned vertically above for a birds eye view, to make perspective correction significantly less important.
+
+    There are two places the camera may be mounted for a birds-eye view of the print bed. Either to the print head, or to the frame. With the former, the main limiting factor is that for each image taken (every layer) the print head would have to move up the z-axis to ensure the bed is completely in frame. Movement along the z-axis is considerably slower than x and y and so would make taking images each frame infeasible.
+
+    With the latter, the print would need to be adjusted along x and y as it is already. The image would also need to be image corrected anyway. Disregarding the persepctive smear I currently have to deal with, I see little benefit to moving the camera to this location.
+
+    In its current position however, it has the added benefit of many prosumer printers having prefitted cameras that could be used for this post-maunfacture upgrade. Additionally, makers often add their own cameras, in these sorts of positions, for the sake of remote monitoring or recording timelapses. In this position, the functionality of the camera could be extended to this monitoring system without any repositioning of the camera. Thus the system can be integrated with minimal repurposing of any existing camera set-up.
 
 ## [3 May 2019 ↑](#overview)
 
