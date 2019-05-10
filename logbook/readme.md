@@ -45,13 +45,39 @@ In order to create an improved outer analysis region there are a number of optio
 
 This means that top face area needs to be computed for each frame. This can indicate what to expect in the surrounding pixels, such as if the area is shrinking (e.g. cone) then there will be a slower rate of increase in orange pixels in the immediate region around the top layer.
 
-    Was recently asked why the camera might not be positioned vertically above for a birds eye view, to make perspective correction significantly less important.
+    Was recently asked why the camera might not be positioned vertically above 
+    for a birds eye view, to make perspective correction significantly less 
+    important.
 
-    There are two places the camera may be mounted for a birds-eye view of the print bed. Either to the print head, or to the frame. With the former, the main limiting factor is that for each image taken (every layer) the print head would have to move up the z-axis to ensure the bed is completely in frame. Movement along the z-axis is considerably slower than x and y and so would make taking images each frame infeasible.
+    There are two places the camera may be mounted for a birds-eye view of the 
+    print bed. Either to the print head, or to the frame. With the former, the 
+    main limiting factor is that for each image taken (every layer) the print 
+    head would have to move up the z-axis to ensure the bed is completely in 
+    frame. Movement along the z-axis is considerably slower than x and y and so 
+    would make taking images each frame infeasible.
 
-    With the latter, the print would need to be adjusted along x and y as it is already. The image would also need to be image corrected anyway. Disregarding the persepctive smear I currently have to deal with, I see little benefit to moving the camera to this location.
+    With the latter, the print would need to be adjusted along x and y as it is 
+    already. The image would also need to be image corrected anyway. 
+    Disregarding the persepctive smear I currently have to deal with, I see 
+    little benefit to moving the camera to this location.
 
-    In its current position however, it has the added benefit of many prosumer printers having prefitted cameras that could be used for this post-maunfacture upgrade. Additionally, makers often add their own cameras, in these sorts of positions, for the sake of remote monitoring or recording timelapses. In this position, the functionality of the camera could be extended to this monitoring system without any repositioning of the camera. Thus the system can be integrated with minimal repurposing of any existing camera set-up.
+    In its current position however, it has the added benefit of many prosumer 
+    printers having prefitted cameras that could be used for this 
+    post-maunfacture upgrade. Additionally, makers often add their own cameras, 
+    in these sorts of positions, for the sake of remote monitoring or recording 
+    timelapses. In this position, the functionality of the camera could be 
+    extended to this monitoring system without any repositioning of the camera. 
+    Thus the system can be integrated with minimal repurposing of any existing 
+    camera set-up.
+
+Polygon area was calculated using an implementation of the [Shoelace formula](https://en.wikipedia.org/wiki/Shoelace_formula) which gave the following result (note that inner voids are not currently taken into account)
+
+<p align="center"><img width="100%" src="logbook-images/20190509003.png" alt="image"></p>
+<p align="center"><sup><i>Area (in mm3) of the outer perimeter of gcode for each layer (inner voids ignored)</sup></i></p>
+
+I next planned to move to calculating the polygon offset (/polygon buffer) of the outer perimeter however realised that this could cause self-intersecting geometry around concave vertices on the original polygon. As such, for the sake of simplicity, I believe that taking a bounding rectangle of the perimeter geometry and offsetting that instead should be suitable for the time being. 
+
+To improve this I could later take more calibration points (at differing z heights in order to properly calibrate the image frame to the z axis).
 
 ## [3 May 2019 ↑](#overview)
 
