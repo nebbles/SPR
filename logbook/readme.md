@@ -21,6 +21,29 @@
 1. [Thur 2 May](#2-May-2019-)
 1. [Fri 3 May](#3-May-2019-)
 1. [Thur 9 May](#9-May-2019-)
+1. [Fri 10 May](#10-May-2019-)
+
+## [10 May 2019 ↑](#overview)
+
+Moved to multiple outer regions for the next stage of analysis. The same average RGB method will be used (moving to k-mean clustering later) to analyse the following regions. Note all the following regions exclude the top layer of the print (which is analysed seperately).
+
+Regions:
+
+1. Green - perimeter of top face
+2. Blue - bounding rectangle of top face perimeter
+3. Light blue - bounding rectangle with scaled offset of 50%
+4. Green - bounding rectangle with scaled offset of 100%
+5. Orange - bounding rectangle with scaled offset of 200%
+6. Yellow - print plane calibration rectangle
+7. Whole image
+
+<p align="center"><img width="100%" src="logbook-images/20190510001.png" alt="image"></p>
+<p align="center"><sup><i>Layer 100 with different regions overlayed on image</sup></i></p>
+
+The results of analysis for each of these regions (omitting region 2, dark blue) for each layer can be seen below.
+
+<p align="center"><img width="100%" src="logbook-images/20190510002.png" alt="image"></p>
+<p align="center"><sup><i>Average RBG value for regions mentioned above (except region 2), for each layer of print</sup></i></p>
 
 ## [9 May 2019 ↑](#overview)
 
