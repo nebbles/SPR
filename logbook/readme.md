@@ -41,33 +41,12 @@
     <a href="#2-may-2019-">Thur 2</a> •
     <a href="#3-may-2019-">Fri 3</a> •
     <a href="#9-may-2019-">Thur 9</a> •
-    <a href="#10-may-2019-">Fri 10</a>
+    <a href="#10-may-2019-">Fri 10</a> •
+    <a href="#14-may-2019-">Tue 14</a> •
+    <a href="#15-may-2019-">Wed 15</a>
 </p>
 
 *Note that the log below is ordered by newest log first.*
-
-1. [Fri 02 Nov](#2-November-2018-)
-1. [Fri 16 Nov](#16-November-2018-)
-1. [Fri 23 Nov](#23-November-2018-)
-1. [Fri 30 Nov](#30-November-2018-)
-1. [11 Jan](#11-January-2019-)
-1. [17-18 Jan](#18-January-2019-)
-1. [19 Jan](#19-January-2019-)
-1. [21-24 Jan](#24-January-2019-)
-1. [27-29 Jan](#29-January-2019-)
-1. [31 Jan](#31-January-2019-)
-1. [1 Feb](#1-February-2019-)
-1. [20 Feb](#20-February-2019-)
-1. [Fri 26 Apr](#26-April-2019-)
-1. [Mon 29 Apr](#29-April-2019-)
-1. [Tue 30 Apr](#30-April-2019-)
-1. [Wed 1 May](#1-May-2019-)
-1. [Thur 2 May](#2-May-2019-)
-1. [Fri 3 May](#3-May-2019-)
-1. [Thur 9 May](#9-May-2019-)
-1. [Fri 10 May](#10-May-2019-)
-1. [Tue 14 May](#14-May-2019-)
-1. [Wed 15 May](#15-May-2019-)
 
 ## [15 May 2019 ↑](#overview)
 
