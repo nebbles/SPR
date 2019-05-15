@@ -54,8 +54,10 @@ Continued with image stack collection of various prints.
 
 - [x] Two clean prints
 - [x] Print with filament cut
-- [ ] Print with part small knock
-- [ ] Print with part removed
+- [x] Print with part small knock
+- [x] Print with part removed
+
+Printing a part for a colleague has reminded me of the importance of this system, as this system could probably have detected the error that it made (on the first layer) and saved a *lot* of material.
 
 ## [14 May 2019 ↑](#overview)
 
