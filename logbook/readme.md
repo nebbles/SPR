@@ -2,10 +2,54 @@
 
 ## Overview
 
-1. [02 Nov](#2-November-2018-)
-1. [16 Nov](#16-November-2018-)
-1. [23 Nov](#23-November-2018-)
-1. [30 Nov](#30-November-2018-)
+<p >
+    <b>Term 1</b>
+    <br>
+    November
+    <a href="#2-november-2018-">Fri 02</a> •
+    <a href="#16-november-2018-">Fri 16</a> •
+    <a href="#23-november-2018-">Fri 23</a> •
+    <a href="#30-november-2018-">Fri 30</a>
+    <br>
+    <b>Term 2</b>
+    <br>
+    January
+    <a href="#11-january-2019-">Fri 11</a> •
+    <a href="#17-january-2019-">Thur 17</a> •
+    <a href="#18-january-2019-">Fri 18</a> •
+    <a href="#19-january-2019-">Sat 19</a> •
+    <a href="#21-january-2019-">Mon 21</a> •
+    <a href="#22-january-2019-">Tue 22</a> •
+    <a href="#24-january-2019-">Thur 24</a> •
+    <a href="#27-january-2019-">Fri 27</a> •
+    <a href="#29-january-2019-">Tue 29</a> •
+    <a href="#31-january-2019-">Fri 31</a>
+    <br>
+    February
+    <a href="#1-february-2019-">Fri 1</a> •
+    <a href="#20-february-2019-">Fri 20</a>
+    <br>
+    <b>Term 3</b>
+    <br>
+    April
+    <a href="#26-april-2019-">Fri 26</a> •
+    <a href="#29-april-2019-">Mon 29</a> •
+    <a href="#30-april-2019-">Tue 30</a>
+    <br>
+    May
+    <a href="#1-may-2019-">Wed 1</a> •
+    <a href="#2-may-2019-">Thur 2</a> •
+    <a href="#3-may-2019-">Fri 3</a> •
+    <a href="#9-may-2019-">Thur 9</a> •
+    <a href="#10-may-2019-">Fri 10</a>
+</p>
+
+*Note that the log below is ordered by newest log first.*
+
+1. [Fri 02 Nov](#2-November-2018-)
+1. [Fri 16 Nov](#16-November-2018-)
+1. [Fri 23 Nov](#23-November-2018-)
+1. [Fri 30 Nov](#30-November-2018-)
 1. [11 Jan](#11-January-2019-)
 1. [17-18 Jan](#18-January-2019-)
 1. [19 Jan](#19-January-2019-)
