@@ -22,6 +22,34 @@
 1. [Fri 3 May](#3-May-2019-)
 1. [Thur 9 May](#9-May-2019-)
 1. [Fri 10 May](#10-May-2019-)
+1. [Tue 14 May](#14-May-2019-)
+1. [Wed 15 May](#15-May-2019-)
+
+## [15 May 2019 ↑](#overview)
+
+Continued with image stack collection of various prints.
+
+- [x] Two clean prints
+- [x] Print with filament cut
+- [ ] Print with part small knock
+- [ ] Print with part removed
+
+## [14 May 2019 ↑](#overview)
+
+Began process of collecting more image stacks. Using a strong orange colour filament for the prints to help with analysis.
+
+Aim is to have:
+
+- Two clean prints
+- One print with filament cut halfway through
+- One print with part knocked slightly from bed half way through
+- One print with part removed entirely from bed half way through
+
+Important to note that the temporary snapshots folder used by Octolapse can be found in the following directory:
+
+```
+/home/pi/.octoprint/data/octolapse/snapshots/
+```
 
 ## [10 May 2019 ↑](#overview)
 
