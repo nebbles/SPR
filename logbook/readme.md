@@ -43,10 +43,47 @@
     <a href="#9-may-2019-">Thur 9</a> •
     <a href="#10-may-2019-">Fri 10</a> •
     <a href="#14-may-2019-">Tue 14</a> •
-    <a href="#15-may-2019-">Wed 15</a>
+    <a href="#15-may-2019-">Wed 15</a> •
+    <a href="#20-may-2019-">Mon 20</a>
 </p>
 
 *Note that the log below is ordered by newest log first.*
+
+## [20 May 2019 ↑](#overview)
+
+Began with organising new image stacks to process. These use common format names:
+
+- `CalibrationCube2_Success`
+- `CalibrationCube2_PoorStart`
+- `CalibrationCube2_StopFilament`
+- `CalibrationCube2_Delaminate`
+- `CalibrationCube2_Removed`
+
+Quick analysis showed that the previous mapping coordinates (generated from the earlier test stack of images) was off. This showed the camera had been moved, which is unsurprising. It raises the importance for a robust and automatic method of calibration to the bed markings. I will come back to analyse this later after this image stack.
+
+Checking each stack in turn, it seems a single updated set of mapping coordinates works for all, although some tolerancing will need to be taken into account. This was always expected but this should be *especially noted for comparison between these image stacks as mileage may vary*.
+
+Also noteworthy, when mapped, the gcode perimeters also seem to be offset slightly from the true values. This error is not from the image mapping, and so I am unsure of where the error has accumulated. Example below.
+
+<p align="center"><img width="100%" src="logbook-images/20190520001.png" alt="image"></p>
+<p align="center"><sup><i>Layer 10 (of 'Success' print) with gcode perimeters overlayed</sup></i></p>
+
+Shoving the stacks throught the advanced RGB analysis yields the following results.
+
+<p align="center"><img width="100%" src="logbook-images/20190520002.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190520003.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190520004.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190520005.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190520006.png" alt="image"></p>
+
+Here is the data restructured and group by region. It helps to see how the different image stacks compare.
+
+<p align="center"><img width="100%" src="logbook-images/20190520007.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190520008.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190520009.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190520010.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190520011.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190520012.png" alt="image"></p>
 
 ## [15 May 2019 ↑](#overview)
 
