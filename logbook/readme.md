@@ -57,7 +57,11 @@ Began with prototyping of decision algorithm. The aim is have a decision maker t
 
 The following plots analyse only the deltas between the current frame and previous frame, as images are streamed into the monitoring class. After manually analysing the images a threshold of `10` was used and the monitoring system flagged each point at which the deltas were larger than the threshold.
 
-This shows where the false positives occur, as errors such as parts being knocked out of position were easily detectable.
+This shows where the false positives occur, as errors such as parts being knocked out of position were easily detectable. These are most prominent in a few particular areas.
+
+1. In the first few layers. These are often the noisiest in the entire stack, as full layer infill causes varying reflections based on the lighting conditions of the particular set-up.
+1. Scene lighting variance. Shadows, or high refelctance due to inconsistent lighting conditions in the environment around the camera set up can cause variations that trigger tight thresholds on the detector.
+1. Potentially, the last few layers. This is due to the same reasons as the first few layers of a print, where full layer infill can cause adverse lighting affects for the camera.
 
 <p align="center"><img width="100%" src="logbook-images/20190523001.png" alt="image"></p>
 <p align="center"><img width="100%" src="logbook-images/20190523002.png" alt="image"></p>
@@ -65,7 +69,25 @@ This shows where the false positives occur, as errors such as parts being knocke
 <p align="center"><img width="100%" src="logbook-images/20190523004.png" alt="image"></p>
 <p align="center"><img width="100%" src="logbook-images/20190523005.png" alt="image"></p>
 
-For further analysis, a rolling average was computed for each image stack, per region. This had to be tuned manually to find a balance between high frequency noise and losing speed on detectable errors.
+Steps to tackle these issues include:
+
+1. Ignoring the first few and last few layers (or increasing the tolerance during these phases) as they are known to be volatile. Extreme errors should still be caught without issue.
+1. Using a low-pass filter to remove high frequency noise. This could tackle the issue where single frames have larger than normal offset due to a rogue lighting issue. These are very rarely seen consecutively.
+
+The low-pass filter could be implemented using a moving-window average. This next step was done to see if it could eliminate the false positives mid print for poor lighting conditions. The below images refer to threshold and window size. 
+
+- The *threshold* is absolute delta change in avg pixel colour (BGR) from previous frame ti current frame at which a vertical line is drawn on the graph (i.e. the detector is triggered).
+- The *window size* is the maximum number of previous frames that are combined to calculate a current average BGR.
+
+As such the left hand side has the average BGR values with detector markings as raw values. The right hand side has the low-pass filter applied, with detector marking recomputed for the moving average.
+
+<p align="center"><img width="100%" src="logbook-images/20190523006.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190523007.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190523008.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190523009.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190523010.png" alt="image"></p>
+
+The prevalent difference between these two (before and after applying the filter) is the significant reduction of false positive detections (all except one early on in the 'Removed' image stack).
 
 ## [22 May 2019 ↑](#overview)
 
