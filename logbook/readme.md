@@ -44,10 +44,36 @@
     <a href="#10-may-2019-">Fri 10</a> •
     <a href="#14-may-2019-">Tue 14</a> •
     <a href="#15-may-2019-">Wed 15</a> •
-    <a href="#20-may-2019-">Mon 20</a>
+    <a href="#20-may-2019-">Mon 20</a> •
+    <a href="#22-may-2019-">Wed 22</a> •
+    <a href="#23-may-2019-">Thur 23</a>
 </p>
 
 *Note that the log below is ordered by newest log first.*
+
+## [23 May 2019 ↑](#overview)
+
+Began with prototyping of decision algorithm. The aim is have a decision maker that will trigger when a significant drop in RGB values is seen.
+
+The following plots analyse only the deltas between the current frame and previous frame, as images are streamed into the monitoring class. After manually analysing the images a threshold of `10` was used and the monitoring system flagged each point at which the deltas were larger than the threshold.
+
+This shows where the false positives occur, as errors such as parts being knocked out of position were easily detectable.
+
+<p align="center"><img width="100%" src="logbook-images/20190523001.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190523002.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190523003.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190523004.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190523005.png" alt="image"></p>
+
+For further analysis, a rolling average was computed for each image stack, per region. This had to be tuned manually to find a balance between high frequency noise and losing speed on detectable errors.
+
+## [22 May 2019 ↑](#overview)
+
+During meeting, identified key areas to focus on in final week to report.
+
+- Reapeatability of data for existing errors. Important to verify that the expected data will indeed be recognisable.
+- Prototype the detection algorithm to process and identify where action would be taken during a print.
+- Trial usage of k-mean clustering for colour detection.
 
 ## [20 May 2019 ↑](#overview)
 
