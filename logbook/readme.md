@@ -74,6 +74,8 @@ Steps to tackle these issues include:
 1. Ignoring the first few and last few layers (or increasing the tolerance during these phases) as they are known to be volatile. Extreme errors should still be caught without issue.
 1. Using a low-pass filter to remove high frequency noise. This could tackle the issue where single frames have larger than normal offset due to a rogue lighting issue. These are very rarely seen consecutively.
 
+#### Apply Low-Pass Filter
+
 The low-pass filter could be implemented using a moving-window average. This next step was done to see if it could eliminate the false positives mid print for poor lighting conditions. The below images refer to threshold and window size. 
 
 - The *threshold* is absolute delta change in avg pixel colour (BGR) from previous frame ti current frame at which a vertical line is drawn on the graph (i.e. the detector is triggered).
