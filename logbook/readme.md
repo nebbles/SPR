@@ -46,10 +46,62 @@
     <a href="#15-may-2019-">Wed 15</a> •
     <a href="#20-may-2019-">Mon 20</a> •
     <a href="#22-may-2019-">Wed 22</a> •
-    <a href="#23-may-2019-">Thur 23</a>
+    <a href="#23-may-2019-">Thur 23</a> •
+    <a href="#24-may-2019-">Fri 24</a> •
+    <a href="#25-may-2019-">Sat 25</a> •
+    <a href="#27-may-2019-">Mon 27</a> •
+    <a href="#28-may-2019-">Tue 28</a> •
+    <a href="#29-may-2019-">Wed 29</a> •
+    <a href="#30-may-2019-">Thur 30</a>
 </p>
 
 *Note that the log below is ordered by newest log first.*
+
+## [30 May 2019 ↑](#overview)
+
+## [29 May 2019 ↑](#overview)
+
+Continued work on the report.
+
+## [28 May 2019 ↑](#overview)
+
+Continued work on report and repeatability prints.
+
+- removed part print, 3
+- knocked part print, 3
+
+The camera was recalibrated for the first frame of the first image stack - but no recalibrated after that point.
+The results for the new image stacks are shown in the plots below.
+
+<p align="center"><img width="100%" src="logbook-images/20190528001.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528002.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528003.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528004.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528005.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528006.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528008.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528009.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528010.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528011.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528012.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528013.png" alt="image"></p>
+<p align="center"><img width="100%" src="logbook-images/20190528014.png" alt="image"></p>
+
+## [27 May 2019 ↑](#overview)
+
+Continued work on report. Also began 'repeat' prints for method evaluation. Types of prints run:
+
+- layer shifted print, 1
+- successful print, 4
+- cut filament print, 3 (different stages in print)
+
+## [25 May 2019 ↑](#overview)
+
+Worked on report.
+
+## [24 May 2019 ↑](#overview)
+
+Worked on report.
 
 ## [23 May 2019 ↑](#overview)
 
@@ -272,9 +324,9 @@ Masking with the extracted gcode perimeter proved successful.
 In follow-up to previous work on image differencing, it seems mathematical subtraction `imgDiff = imgA - imgB` was the wrong approach and instead replaced by `imgDiff = cv2.subtract(imgA, imgB)` worked much better. See below. Also did a sanity check between two very different layers, 100 and 20, which gave expected results.
 
 <p align="center">
-<img width="45%" src="logbook-images/20190502002.png" alt="image">
-<img width="45%" src="logbook-images/20190502003.png" alt="image">
-<img width="45%" src="logbook-images/20190502004.png" alt="image">
+<img width="30%" src="logbook-images/20190502002.png" alt="image">
+<img width="30%" src="logbook-images/20190502003.png" alt="image">
+<img width="30%" src="logbook-images/20190502004.png" alt="image">
 </p>
 <p align="center"><sup><i>Layer 20-19 using cv2.subtract() (left), histogram adjusted manually to highlight image data (centre), sanity check of image diff between layer 100 and layer 20 (right)</sup></i></p>
 
