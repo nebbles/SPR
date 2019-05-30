@@ -59,9 +59,11 @@
 
 ## [30 May 2019 ↑](#overview)
 
+Completed report and updated this logbook for submission. *Please note that the code will be released seperately in the form of a Jupyter Notebook. Conversion from the Python script `process.py` is required first.*
+
 ## [29 May 2019 ↑](#overview)
 
-Continued work on the report.
+Continued work on the report. Added support in code to demonstrate detection of material flow error.
 
 ## [28 May 2019 ↑](#overview)
 
