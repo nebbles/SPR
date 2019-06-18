@@ -1,0 +1,5 @@
+# Ignore reference material
+additional/* linguist-vendored=true
+
+# Ignore g-code files
+*.gcode linguist-detectable=false 
