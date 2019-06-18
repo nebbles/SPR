@@ -10,29 +10,19 @@
 </p>
 
 <p  align="center">
-<sup><sup>
+<sup>
   Dyson School of Design Engineering, Imperial College London<br>
   Solo Project – May 2019
-</sup></sup>
+</sup>
 </p>
 
-<!-- <h4 align="center">
-  <a href="#">More information coming soon...</a>
-  <br><br>
- <img width="80" src="http://readthedocs.org/projects/de3-rob1-chess/badge/?version=latest" alt="Documentation Status"> 
-</h4> -->
-
-<!-- 
-<p align="center">
-	<sub>Design Engineering, Imperial College London</sub>
-</p>
-<br>
+<h4 align="center">Guided Demo Video</h4>
 <p align="center">
 	<a href="https://vimeo.com/291377091" >
-	<img width="600" src="vimeo.png" alt="Click to play"></a>
+	<img width="600" src=".github/vimeo.png" alt="Click to play"></a>
 </h1>
 <br>
--->
+
 
 Prosumer 3D printers enable low-cost and accessible entry into prototyping and DIY repair. This project aims to reduce material and time wasted due to unexpected errors common in these machines.
 
