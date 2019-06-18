@@ -57,6 +57,16 @@
 
 *Note that the log below is ordered by newest log first.*
 
+## [2 June 2019 ↑](#overview)
+
+To implement the live demo, the software was run on a companion computer that already had the requirements installed. The Raspberry Pi had difficulty trying to use `opencv-python` with `python3` which are part of the core requirements. So instead, the `.octoprint/data/octolapse/snapshots/` directory was kept in sync with a local directory using `rsync` the following command was run on the companion computer.
+
+```
+while sleep 5s; do rsync -avz --delete -e ssh  pi@146.169.216.149:/home/pi/.octoprint/data/octolapse/snapshots ~/GitHub/masters/live_snapshots_env/; done
+```
+
+Note that the SSH profile was installed on the companion computer for automatic login via the SSH command. The IP address quoted is the local IP. The live detector code then watched the `live_snapshots_env/` directory as if it was the snapshot source directory on the Raspberry Pi.
+
 ## [30 May 2019 ↑](#overview)
 
 Completed report and updated this logbook for submission. *Please note that the code will be released seperately in the form of a Jupyter Notebook. Conversion from the Python script `process.py` is required first.*
